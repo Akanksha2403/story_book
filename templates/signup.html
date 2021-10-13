@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    form {
+    background: rgba( 255, 255, 255, 0.2 );
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+backdrop-filter: blur( 20px );
+-webkit-backdrop-filter: blur( 20px );
+border-radius: 10px;
+border: 1px solid rgba( 255, 255, 255, 0.18 );
+    align-items: center;
+    padding: 20px;
+    color: rgb(255, 0, 0);
+    margin-right: 0%;
+    margin-top: 10%;
+    margin-left: 35%;
+    font-size: 25px;
+    left: 870px;
+    padding-top:15px;
+    border-radius: 15px;
+    width: 450px;
+    
+}
+
+.form-control{
+    border: 1px solid;
+    border-radius: 5px;
+    font-size: 20px;
+    width: 270px;
+    margin-right: 1px;;
+    height: 29px;;
+}
+.bts{
+    font-size: 25px;
+    border-radius: 8px;
+    background: linear-gradient(rgb(29, 131, 19), rgb(231, 190, 8), rgb(10, 128, 10)) !important;
+    color: white ;
+    width: 435px;
+    height: 45px;
+}
+
+</style>
+<body>
+     
+
+    <form class="formed" action= "/signup" method='post'>
+        <h1 style="align-items:center">Sign Up</h1>
+        <hr>
+        <div class="form-float">
+    <label>Username : </label> &nbsp &nbsp &nbsp
+    <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username"><br>
+</div><br>
+    <label>Email: </label> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp 
+<input type="email" name="email"  class="form-control"><br><br>
+<label>Password: </label>&nbsp &nbsp &nbsp &nbsp 
+<input type="password" name="password"  class="form-control"><br><br>
+<label>Country: </label> &nbsp &nbsp &nbsp &nbsp &nbsp 
+<select name="country" aria-placeholder="select your country"  class="form-control">
+    <option selected>Choose your location</option>
+    <option value="1">America</option>
+    <option value="2">Russia</option>
+    <option value="3">China</option>   
+    <option value="4">England</option>
+    <option value="5">India</option>
+    <option value="6">Afghanistan</option>
+</select>
+<br>
+<br>
+<button type="submit" class="bts">Submit</button>
+ 
+<HR>
+    
+</form>
+<br>
+
+    
+</body>
+</html>

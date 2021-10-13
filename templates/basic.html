@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Bonheur+Royale&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Poppins:wght@100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+ <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100&family=Poppins:wght@100&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Lobster&display=swap" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/css2?family=Allison&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <script src="ckeditor/ckeditor.js"></script>
+  <script src="https://cdn.ckeditor.com/4.16.2/standard/ckeditor.js"></script>
+{% block head %}{% endblock %}
+
+</head>
+
+<style>
+nav{
+    color: rgb(248, 237, 239);
+    background-color: rgb(30, 35, 75);
+    display:flex;
+}
+ul li{
+  display: flex;
+}
+
+.navbar-nav{
+  display: flex;
+  font-size: 20px;
+  align-items: right;
+}
+a{
+  text-decoration: none;
+  color: white;
+  
+}
+
+.navbar-nav li{
+  margin: 0 0.3vw;
+  margin-left: 35px;
+}
+.navbar-brand{
+  color: #ffffff;
+   font-size: 50px; 
+   font-family:'Bonheur Royale', cursive;
+    font-weight: 900;
+
+}
+
+
+{% block css %} {% endblock %}
+
+  </style>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <span class="badge rounded-circle"> <a class="navbar-brand" href="/"  >StoryTellers</a></span>
+<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <span class="navbar-toggler-icon"></span>
+</button>
+
+<div class="collapse navbar-collapse" id="navbarSupportedContent">
+  <ul class="navbar-nav mr-auto">
+    <li class="item">
+      <a class="nav-link active" href="/">Home</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="/all/stories/">Stories</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="/all/upload/">Create Book</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="/all/audioplay/">Create Video</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="#">Contact Us</a>
+  </li>
+</ul>
+{% if user.is_authenticated  %}
+<ul class="navbar-nav mr-2">
+  <li class="nav-item dropdown">
+  <a class="nav-link dropdown-toggle text-white"  href='#'  id="navbarDropdown" role="button" data-toggle="dropdown"> Welcome {{request.user}}</a>
+  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="/logout">Logout</a>
+            <a class="dropdown-item" href="/app/profup">profile</a>
+
+          </div>
+        </li>
+        </ul>
+        </div>
+{% else %}
+
+{%endif %}
+
+{% for message in messages  %}
+<div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+      <strong>Message : </strong> {{ message }}
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times</span>
+      </button>
+    </div>
+{% endfor %}
+
+
+
+  </div>
+  </nav>
+
+
+
+{% block body %}{%endblock%}
+
+<script>
+  
+{% block js %}{%endblock%}
+
+</script>
+
+</body>
+</html>
