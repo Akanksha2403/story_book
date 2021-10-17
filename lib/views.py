@@ -20,7 +20,7 @@ def handleSignUp(request):
         country = request.POST['country']
 
         myuser = User.objects.create_user(username, email, pass1)
-        myuser.country = country
+        # myuser.country = country
         myuser.save()
         messages.success(request, " Your account has been successfully created")
         return redirect('/')
@@ -35,9 +35,9 @@ def handleLogin(request):
         # Get the post parameters
         loginusername = request.POST['loginusername']
         loginpassword = request.POST['loginpassword']
-        loginemail = request.POST['loginemail']
+        # loginemail = request.POST['loginemail']
 
-        user = authenticate(username = loginusername, password = loginpassword,email = loginemail)
+        user = authenticate(username = loginusername, password = loginpassword)
 
         if user is not None:
             login(request, user)

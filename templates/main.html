@@ -27,7 +27,7 @@ body{
     background: #1c2237;
 }
 
-form {
+.formed {
     background: rgba( 255, 255, 255, 0.2 );
 box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
 backdrop-filter: blur( 20px );
@@ -163,10 +163,10 @@ ul li a:hover{
         <li style="color: #ff7200; font-size: 60px; font-family:'Bonheur Royale', cursive; font-weight: 900;">Storytellers</li> 
         <li class="icon" ><i class="fas fa-bars"></i>
         </li>
-        <li><a href="/all/books/"  class="links">Home</a></li>
-        <li><a href="/all/upload/" class="links">Romantic Stories</a></li>
-        <li><a href="/all/audio/"  class="links">Barbies Stories</a></li>
-        <li><a href="#"  class="links">Create</a></li>
+        <li><a href="/all/books/"  class="links">Stories</a></li>
+        <li><a href="/all/upload/" class="links">Create Video</a></li>
+        <li><a href="/all/audio/"  class="links">Create Audio</a></li>
+        <li><a href="#"  class="links">Contact Us</a></li>
        
     </ul>
 </div>
@@ -178,8 +178,14 @@ ul li a:hover{
 
     <button type="submit" class="btsp" style="margin-left:9px"><a href="/all/books/">Join Us</a></button>
 
-  
-    <form class="formed" action= "/login" method='post'>
+  <div class="formed">
+
+    {% if user.is_authenticated %}
+    <h1>Welcome {{user}}<h1>  <h4>We are thankfull to you</h4>
+
+<!-- 
+        {% else  %} -->
+    <form action="/login" method="POST" id='loged'>
         
         {% csrf_token %}
         <h1 style="align-items:center">Login</h1>
@@ -188,18 +194,20 @@ ul li a:hover{
     <label>Username : </label> &nbsp &nbsp &nbsp
     <input type="text" name="loginusername" class="form-control" placeholder="Username" aria-label="Username"><br>
 </div><br>
-    <label>Email: </label> &nbsp &nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp 
-<input type="email" name="loginemail"  class="form-control"><br><br>
 <label>Password: </label>&nbsp &nbsp &nbsp &nbsp 
 <input type="password" name="loginpassword"  class="form-control"><br>
 <br>
 <button type="submit" class="bts">Submit</button>
  
 <HR>
-    
+<h5 style="text-align:center">Create a new account &nbsp; <a href="/signuppage/" style="text-decoration: underline; color:rgb(62, 204, 62)">click here</a></h5>  
 <br>
-<br>
+
 </form>
+
+{% endif  %}
+</div>
+
 <br>
 </div> 
 
@@ -213,6 +221,9 @@ ul li a:hover{
     x.className = "navbar";
   }
 }
+
+
+
 </script>
 </body>
 </html>

@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+{% extends 'basic.html' %}
+{% block head %}   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
-</head>
-<style>
+{%  endblock %}
+{% block css %}
 
 body{
 
@@ -20,7 +18,9 @@ body{
   border: 7px solid white !important;
   border-radius: 15px;
   margin: 50px;
-  background-color:rgb(20, 19, 71);
+  background-color:#1c2237;
+
+  <!-- background-color: #1c2237;  -->
 
 }
 
@@ -55,7 +55,7 @@ h4,p{
 
 .vd{
   background-color:rgb(255, 255, 255);
-  width: 95%;
+  width: 94%;
   margin:3%;
   /* margin-top: 5%; */
 }
@@ -63,17 +63,15 @@ h4,p{
 .rd{
   background: url("https://store-images.s-microsoft.com/image/apps.39276.13751394576402710.96cc685f-8b49-4be9-9fa4-cdd32167e5bf.f11f0272-9484-403d-bd5c-cc134e53f99f?mode=scale&q=90&h=720&w=1280");
   /* background-color:rgb(253, 253, 253); */
-  width: 95%;
+  width: 94%;
   margin:3%;
   /* margin-top: 5%; */
 }
 
 
-</style>
+{% endblock %}
 
-
-
-<body>
+{% block body %}
     
 <div id="container">
 <video src="" id="gum" class="vd" playsinline autoplay muted></video>
@@ -96,6 +94,7 @@ h4,p{
   </div>
 </div>
 
+{% block js %}
 <script>
   
 let mediaRecorder;
@@ -215,6 +214,6 @@ document.querySelector('button#start').addEventListener('click', async () => {
     
     
     </script>
+{% endblock %}
 
-</body>
-</html>
+{% endblock %}

@@ -1,17 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/7d35781f0a.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-
-    <style>
+{% extends 'basic.html' %}
+ {% block css %}
         #pause {
             display: none;
         }
@@ -51,9 +39,13 @@
             height: 700px;
             margin: 2rem auto;
             padding: 3rem 1.25rem;
-            background: rgb(24, 24, 71);
-            box-shadow: 20px 20px 60px #c8c8c8,
-                -20px -20px 60px #ffffff;
+            background: #1c2237;
+            <!-- box-shadow: 20px 20px 60px black,
+                -20px -20px 60px black; -->
+                
+    box-shadow: 0px 0px 13px 0px rgba(28,34,55,0.75);
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(28,34,55,0.75);
+    -moz-box-shadow: 0px 0px 13px 0px rgba(28,34,55,0.75);
             border-radius: 15px;
             border: 1px solid rgb(223, 223, 223);
             position: relative;
@@ -161,10 +153,9 @@
             padding: 1rem 0;
             text-align: center;
         }
-    </style>
-</head>
-
-<body>
+{% endblock %}
+{% block body %}
+       
 
     <main class="player">
         <div class="info">
@@ -210,8 +201,12 @@
         </ul>
 
     </main>
-    <script>
-        const player = document.getElementById('myMusic');
+    
+    
+    {% block js %}
+    const player = document.getElementById('myMusic');
+
+
 
 
         player.addEventListener('timeupdate', function () {
@@ -246,8 +241,7 @@
             document.getElementById('unmute').style.display = 'none';
             document.getElementById('myMusic').muted = false;
         }
-    </script>
 
-</body>
+        {% endblock %}
 
-</html>
+{% endblock %}
