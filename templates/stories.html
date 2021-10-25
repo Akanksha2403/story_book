@@ -17,8 +17,8 @@
 		height: 27rem;
 		color: rgb(240, 232, 232);
 		font: sans-serif;
-		margin-left: 25px;
-		margin-top: 56px;
+		margin-inline: 25px;
+		margin-block: 46px;
 		text-align: center;
 		box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
 		-webkit-box-shadow: 0px 0px 13px 0px rgba(28, 34, 55, 0.75);
@@ -46,14 +46,15 @@
 	}
 
 	.card2 {
-		width: 15.5rem;
+		width: 16.5rem;
 		box-shadow: 0 6px 9px 0 rgba(0, 0, 0, 0.966), 0 6px 20px 0 rgba(0, 0, 0, 0.473);
-		border-radius: 4px;
+		border-radius: 5px;
 		height: max-content;
 		background-color: white;
 		color: #1c2237;
 		font: sans-serif;
-		margin-left: 20px;
+		margin-inline: 25px;
+		margin-block: 46px;
 		text-align: center;
 		display: block;
 		flex-grow: 0;
@@ -62,13 +63,11 @@
 		align-self: auto;
 		order: 0;
 		transition: all 0.4s ease-out;
-
 	}
 
 	.card2:hover {
 		transform: scale(1.05);
 		cursor: pointer;
-
 	}
 
 	.btn {
@@ -168,24 +167,32 @@
 
 	.fir-part,
 	.sec-part {
-
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
 		justify-content: center;
 		align-items: center;
 		align-content: center;
+		width: 100%;
 	}
 
-	.fir-part {
-		margin: 5% 0;
+	.first-wrap-up {
+		background-color: white;
+		color: #1c2237;
+		display: block;
+		padding: 40px;
+	}
+
+	.second-wrap-up {
+		background-color: #1c2237;
+		color: white;
+		display: block;
+		padding: 40px;
 	}
 
 	.sec-part {
 		background-color: #1c2237;
 		color: white;
-		margin-top: 5%;
-		padding: 50px;
 	}
 
 	h1 {
@@ -197,52 +204,84 @@
 		margin-top: 0px;
 		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 	}
+
+	.LFfdHsfU {
+		/* 492 x 762 */
+		width: calc(264px);
+		height: calc(432px);
+	}
+
+	.animation-btn-light {
+		font-size: 24px;
+		padding: 10px;
+		padding-left: 25px;
+		padding-right: 30px;
+		border: 2px solid #1c2237;
+		border-radius: 5px;
+		color: #1c2237;
+		transition: all 0.4s ease-out;
+	}
+
+	.animation-btn-light:hover {
+		background-color: #1c2237;
+		color: white
+	}
+
+	.animation-btn-light-sec {
+		font-size: 24px;
+		padding: 10px;
+		padding-left: 25px;
+		padding-right: 30px;
+		border: 2px solid #ffffff;
+		border-radius: 5px;
+		color: #ffffff;
+		transition: all 0.4s ease-out;
+	}
+
+	.animation-btn-light-sec:hover {
+		background-color: white;
+		color: #1c2237
+	}
 </style>
 {% endblock css %}
 {% block body %}
 <hr style="background-color:white;">
 <h1>Welcome to the World of Book</h1>
 
-<div class="row fir-part" style="display: flex;">
-	{% for i in allbooks %}
-	<div class="card">
-		<div class="cdb">
-			<a href="/all/read/{{i.id}}" style="text-decoration: none; color:white;"> <img src="/media/{{i.img}}"
-					width=100%></a>
-			<br>
-			<h5 class="cd-title">{{i.book_name}}</h5>
+<div class="first-wrap-up">
+	<div class="row fir-part" style="display: flex;">
+		{% for i in allbooks %}
+		<div class="card">
+			<div class="cdb">
+				<a href="/all/read/{{i.id}}" style="text-decoration: none; color:white;">
+					<img src="/media/{{i.img}}" class="LFfdHsfU"></a>
+				<h5 class="cd-title">{{i.book_name}}</h5>
+			</div>
 		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
+	<a class="animation-btn-light mx-4" href="/all/upload">+ Create</a>
 </div>
-<div class="btn-container">
-	<p><a class="animation-btn" href="/all/upload">+ Create</a></p>
-</div>
-<div class="row sec-part" style="display: flex;">
-	{% for i in allaudios %}
-	<div class="card2">
-		<div class="cdb">
-			<a href="/all/audioplay/{{i.id}}" style="text-decoration: none; color:white;"> <img
-					src="https://4.imimg.com/data4/DO/JC/MY-1978309/music-wallpaper-500x500.jpg" width=100%
-					style="border-radius: 1%;"></a>
-			<h5 class="cd-title">{{i.story_name}}</h5>
+
+<div class="second-wrap-up">
+	<div class="row sec-part">
+		{% for i in allaudios %}
+		<div class="card2">
+			<div class="cdb">
+				<a href="/all/audioplay/{{i.id}}" style="text-decoration: none; color:white;"> <img
+						src="https://4.imimg.com/data4/DO/JC/MY-1978309/music-wallpaper-500x500.jpg" width=100%
+						style="border-radius: 1%;"></a>
+				<h5 class="cd-title">{{i.story_name}}</h5>
+			</div>
 		</div>
+		{% endfor %}
+
 	</div>
-	{% endfor %}
-
-
-</div>
-<div class="btn-container-sec">
-	<p class="animation-btn-sec"><a href="/all/audio">+ Create</a></p>
+	<a class="animation-btn-light-sec mx-4" href="/all/audio">+ Create</a>
 </div>
 
-<p id="demo"></p>
-
-{% endblock body %}
+{% endblock body%}
 
 {% block js%}
-<script>
-	document.getElementById("demo").innerHTML =
-		"cookiesEnabled is " + navigator.cookieEnabled;
-</script>
+
 {% endblock js %}

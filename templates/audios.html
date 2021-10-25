@@ -154,15 +154,13 @@
 <main class="player">
     <div class="info">
         <h1>{{ai.story_name}} </h1>
-        <p>{{user}}</p>
+        <p>{{user|title}}</p>
     </div>
-    <br><br>
     <img src="https://static.voices.com/wp-content/uploads/History-of-Audiobooks.jpg"
         style="border-radius: 20px; width: 45%; margin-left: 27%;">
     <audio id="myMusic">
         <source src="/media/{{ai.story_audio }}" type="audio/mpeg">
     </audio>
-    <br><br><br><br>
     <div class="prog">
         <div class="prog-time">
             <p class="left">0:00</p>

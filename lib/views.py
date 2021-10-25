@@ -6,10 +6,12 @@ from django.shortcuts import render, redirect
 
 
 def index(request):
-    return render(request,'main.html')
+    return render(request, 'main.html')
+
 
 def signuppage(request):
-    return render(request,'signup.html')
+    return render(request, 'signup.html')
+
 
 def handleSignUp(request):
     if request.method == "POST":
@@ -18,9 +20,7 @@ def handleSignUp(request):
         email = request.POST['email']
         pass1 = request.POST['password']
         country = request.POST['country']
-
         myuser = User.objects.create_user(username, email, pass1)
-        # myuser.country = country
         myuser.save()
         messages.success(request, " Your account has been successfully created")
         return redirect('/')
@@ -28,7 +28,6 @@ def handleSignUp(request):
     else:
         return HttpResponse("404 - Not found")
 
-    return HttpResponse("login")
 
 def handleLogin(request):
     if request.method == "POST":
@@ -37,7 +36,7 @@ def handleLogin(request):
         loginpassword = request.POST['loginpassword']
         # loginemail = request.POST['loginemail']
 
-        user = authenticate(username = loginusername, password = loginpassword)
+        user = authenticate(username=loginusername, password=loginpassword)
 
         if user is not None:
             login(request, user)
@@ -48,6 +47,7 @@ def handleLogin(request):
             return redirect("/")
 
     return HttpResponse("handlelogin")
+
 
 def handleLogout(request):
     logout(request)

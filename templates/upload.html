@@ -1,10 +1,11 @@
 {% extends 'basic.html' %}
 {% block head %}
 <script src="https://cdn.ckeditor.com/ckeditor5/30.0.0/classic/ckeditor.js"></script>
-{% endblock head%}
+{% endblock head %}
 
 {% block css %}
 <style>
+	
 	body {
 		background-color: white;
 	}
@@ -18,31 +19,23 @@
 
 	.main {
 		margin: 3%;
+		padding: 2%;
 		font-size: 25px;
 	}
 </style>
 {% endblock css %}
 
-
 {% block body %}
 <div class="container">
 	<div class="main">
-		<h1 style="color:rgb(255, 253, 254); text-align:center; font-family: Arial, Helvetica, sans-serif;">Create Your
-			Book And show Your Ideas</h1>
-		<br>
-		{% for message in messages %} {% if "Exists" in message %}
-		<h6 class="text-danger">{{ message }}</h6>
-		{% else %}
-		<h6 class="text-white">{{ message }}</h6>
-		{% endif %}
-		{% endfor %}
+		<h1 style="color:rgb(255, 253, 254); text-align:center; font-family: Arial, Helvetica, sans-serif;">
+			Create Your Book And Show Your Ideas</h1>
+
 		{% if user.is_authenticated %}
+		
 		<main class="maine" role="main">
 			<div class="JCYvY">
-				<form method="POST" action="/all/upload/" enctype="multipart/form-data">
-					{% csrf_token %}
-
-
+				<form method="POST" action="/all/upload/" enctype="multipart/form-data">{% csrf_token %}
 					<div class="im">
 						<div class="claas">
 							<h3 class="h33" style="color: azure;">Add Image Here</h3>
@@ -51,42 +44,25 @@
 							Must be a JPG or PNG file. The minimum recommended size is 492 x
 							762 pixels.
 						</div>
-
-						<input style="color: azure;" accept="image/jpg, image/png, image/jpeg" class="YeWti" name="imgs"
-							type="file" />
-						<br>
-						<!--             
-            <input  accept="image/jpg, image/png, image/jpeg" class="Yei"  multiple name="imgall" multiple  type="file"/> -->
-						<br>
-						<br>
-						<br>
-						<label for="Book_name" style="color: azure;">Book_name</label>
-						<input type="text" class="form-control" id="title" name="book_name" placeholder="Book_name ">
+						<div style="margin: 10px;"><input style="color: azure;" accept="image/jpg, image/png, image/jpeg" class="YeWti" name="imgs" type="file"/></div>
+						<label for="Book_name" style="color: azure;">Book Name</label>
+						<input type="text" clfass="form-control" id="title" name="book_name" placeholder="Book Name ">
 					</div>
 					<div class="form-group">
 						<label for="name" style="color: azure;">Description</label>
-						<textarea id="editor" name="book_desc" rows="50" col="80" placeholder="Book_description"
+						<textarea id="editor" name="book_desc" rows="70" col="80" placeholder="Book Description"
 							style="color: black"></textarea>
 					</div>
-					<br>
 					<button class="btn " type="submit"
 						style="width: 20%; font-size: 25px; color: aliceblue; margin-left: 80%; background-color: rgb(8, 216, 25);">Post</button>
-					<br>
-					<br>
 				</form>
 			</div>
 	</div>
-
-	{% else %}
-
-	<h2><a href="/login"></a></h2>
-
-	{% endif %}
 </div>
-<br />
-<br />
-<br />
 
+{% else %}
+<h2><a href="/login"></a></h2>
+{% endif %}
 {% endblock body%}
 
 {% block js%}
